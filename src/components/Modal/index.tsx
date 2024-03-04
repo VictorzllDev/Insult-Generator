@@ -6,12 +6,8 @@ export function Modal() {
   const [lang, setLang] = useState('EN')
 
   const generateInsult = async () => {
-    try {
-      const insult = await getInsult(lang)
-      setInsult(insult)
-    } catch {
-      setInsult('')
-    }
+    const insult = await getInsult(lang)
+    setInsult(insult)
   }
 
   return (
@@ -21,7 +17,10 @@ export function Modal() {
           name="lang"
           id="lang"
           className="rounded p-2"
-          onChange={(e) => setLang(e.target.value)}
+          onChange={(e) => {
+            setLang(e.target.value)
+            setInsult('')
+          }}
           value={lang}
         >
           <option>EN</option>

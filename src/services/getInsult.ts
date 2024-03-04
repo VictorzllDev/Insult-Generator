@@ -13,7 +13,8 @@ export async function getInsult(lang: string) {
 	const data = axios.get<InsultData>(api)
 
 	// Check if there was an error in the request.
-	if ((await data).data.error) new Error('error em buscar insultos')
+	if ((await data).data.error)
+		return new Error(' error in searching for insults.')
 
 	// If the requested language is the same as the language of the sentence, return the sentence.
 	if (lang.toLowerCase() == 'en') return (await data).data.insult
