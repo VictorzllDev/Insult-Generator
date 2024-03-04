@@ -15,7 +15,7 @@ export function Modal() {
   }
 
   return (
-    <div className="mx-auto my-7 flex max-w-screen-sm flex-col justify-between space-y-4 rounded bg-slate-300 p-4">
+    <div className="my-7 flex w-full max-w-screen-sm flex-col justify-between space-y-4 rounded bg-slate-300 p-4">
       <div className="flex justify-end">
         <select
           name="lang"
@@ -38,7 +38,7 @@ export function Modal() {
       </div>
       <div>
         <button
-          className="flex w-full items-center justify-center rounded bg-blue-500 py-4 font-semibold capitalize text-white"
+          className="flex w-full items-center justify-center rounded bg-blue-500 px-3 py-4 font-semibold capitalize text-white"
           onClick={generateInsult}
         >
           {isLoading ? (

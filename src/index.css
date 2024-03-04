@@ -5,4 +5,13 @@
 * {
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
+  min-width: 0;
+}
+
+body {
+  @apply bg-gradient-to-tr from-slate-500 to-blue-400;
+}
+#root {
+  width: 100%;
+  @apply flex min-h-dvh flex-col items-center justify-center p-3;
 }
