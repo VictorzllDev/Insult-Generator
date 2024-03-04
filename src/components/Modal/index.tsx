@@ -1,13 +1,17 @@
 import { useState } from 'react'
 import { getInsult } from '../../services/getInsult'
+import { IconLoader } from '@tabler/icons-react'
 
 export function Modal() {
   const [insult, setInsult] = useState('')
   const [lang, setLang] = useState('EN')
+  const [isLoading, setIsLoading] = useState(false)
 
   const generateInsult = async () => {
+    setIsLoading(true)
     const insult = await getInsult(lang)
     setInsult(insult)
+    setIsLoading(false)
   }
 
   return (
@@ -34,10 +38,14 @@ export function Modal() {
       </div>
       <div>
         <button
-          className="w-full rounded bg-blue-500 py-4 font-semibold capitalize text-white"
+          className="flex w-full items-center justify-center rounded bg-blue-500 py-4 font-semibold capitalize text-white"
           onClick={generateInsult}
         >
-          generate insult
+          {isLoading ? (
+            <IconLoader className="animate-spin" />
+          ) : (
+            'generate insult'
+          )}
         </button>
       </div>
     </div>
