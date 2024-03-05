@@ -16,7 +16,10 @@ export function Modal() {
 
   return (
     <div className="my-7 flex w-full max-w-screen-sm flex-col justify-between space-y-4 rounded bg-slate-300 p-4">
-      <div className="flex justify-end">
+      <div className="flex items-center justify-between">
+        <p className="text-lg font-semibold capitalize text-slate-900">
+          Insult Generator
+        </p>
         <select
           name="lang"
           id="lang"
