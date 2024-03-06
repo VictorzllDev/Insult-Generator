@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { getInsult } from '../../services/getInsult'
 import { IconLoader } from '@tabler/icons-react'
+import { toast } from 'react-toastify'
 
 export function Modal() {
   const [insult, setInsult] = useState<string>('')
@@ -12,8 +13,13 @@ export function Modal() {
     try {
       const insult = await getInsult(lang)
       setInsult(insult)
+      toast.success('successfully created insult', {
+        theme: 'light',
+      })
     } catch (error: any) {
-      alert(error.message)
+      toast.error(error.message, {
+        theme: 'light',
+      })
     }
     setIsLoading(false)
   }
