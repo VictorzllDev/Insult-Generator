@@ -3,14 +3,18 @@ import { getInsult } from '../../services/getInsult'
 import { IconLoader } from '@tabler/icons-react'
 
 export function Modal() {
-  const [insult, setInsult] = useState('')
-  const [lang, setLang] = useState('EN')
-  const [isLoading, setIsLoading] = useState(false)
+  const [insult, setInsult] = useState<string>('')
+  const [lang, setLang] = useState<string>('EN')
+  const [isLoading, setIsLoading] = useState<boolean>(false)
 
   const generateInsult = async () => {
     setIsLoading(true)
-    const insult = await getInsult(lang)
-    setInsult(insult)
+    try {
+      const insult = await getInsult(lang)
+      setInsult(insult)
+    } catch (error: any) {
+      alert(error.message)
+    }
     setIsLoading(false)
   }
 
